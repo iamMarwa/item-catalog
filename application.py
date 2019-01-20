@@ -106,12 +106,10 @@ def newCategory():
         return redirect(url_for('showCatalog'))
     else:
         return render_template('new_category.html')
-         
-           
-        
-
 
 # EDIT a category
+
+
 @app.route('/categories/<int:category_id>/edit/', methods=['GET', 'POST'])
 @login_required
 def editCategory(category_id):
@@ -277,6 +275,8 @@ def showLogin():
     return render_template('login.html', STATE=state)
 
 # CONNECT - Google login get token
+
+
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
@@ -409,7 +409,7 @@ def getUserID(email):
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
-    except:
+    except Exception:
         return None
 
 
