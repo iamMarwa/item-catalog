@@ -94,7 +94,7 @@ def showCatalog():
 def newCategory():
     """Allows user to create new category"""
     if request.method == 'POST':
-        print login_session
+        print "login_session"
         if 'user_id' not in login_session and 'email' in login_session:
             login_session['user_id'] = getUserID(login_session['email'])
         newCategory = Category(
@@ -432,7 +432,7 @@ def createUser(login_session):
 # Disconnect based on provider
 @app.route('/disconnect')
 def disconnect():
-    print login_session
+    print "login_session"
     if 'provider' in login_session:
         if login_session['provider'] == 'google':
             gdisconnect()
